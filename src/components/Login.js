@@ -1,6 +1,9 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
-import { NETFLIX_BACKGROUND_IMG_URL } from "../utils/constants";
+import {
+  NETFLIX_BACKGROUND_IMG_URL,
+  DEFAULT_USER_AVATAR,
+} from "../utils/constants";
 import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
@@ -8,7 +11,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
 
@@ -21,7 +23,6 @@ const Login = () => {
   const password = useRef(null);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
@@ -47,10 +48,8 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://occ-0-8407-2186.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTZ2zlLdBVC05fsd2YQAR43J6vB1NAUBOOrxt7oaFATxMhtdzlNZ846H3D8TZzooe2-FT853YVYs8p001KVFYopWi4D4NXM.png?r=229",
+            photoURL: DEFAULT_USER_AVATAR,
           }).then(() => {
-            navigate("/browse");
             const { uid, email, displayName, photoURL } = auth.currentUser;
             dispatch(addUser({ uid, email, displayName, photoURL }));
           });
@@ -66,15 +65,11 @@ const Login = () => {
         auth,
         email.current.value,
         password.current.value
-      )
-        .then(() => {
-          navigate("/browse");
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(errorCode + "-" + errorMessage);
-        });
+      ).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setErrorMessage(errorCode + "-" + errorMessage);
+      });
     }
   };
 

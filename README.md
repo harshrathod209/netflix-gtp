@@ -16,6 +16,19 @@
 - Implemented sign out
 - Routing on sign in/ sign out
 - Update user profile api call (Firebase)
+- Unsubscribed to the onAuthStateChanged callback
+- Add constant file to project
+- Register for TMDB App and create an APP and get access token (http://loclahost:3000)
+- Get data from TMDB now playing movies API
+- Custom hook for now playing movies
+- Create a movieSlice
+- Update store with movies data
+- Planning for Main adn secondary container
+- Fetch data for trailer video
+- update video with trailer video data
+- Create movieSlice
+- Embedded the youtube video and make it autoplay and mute
+- Tailwind wind classes to make Main container look awesome
 
 # Features
 

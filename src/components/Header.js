@@ -1,21 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NetflixLogo from "../utils/assets/svg/netflix-logo.svg";
-import { signOut } from "firebase/auth";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
+import { APP_ROUTES, DEFAULT_USER_AVATAR } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(addUser({ uid, email, displayName, photoURL }));
+        navigate(APP_ROUTES.BROWSE);
+      } else {
+        dispatch(removeUser());
+        navigate(APP_ROUTES.LOGIN);
+      }
+    });
+    //Unsubscribe when component unmounts
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
+      .then(() => {})
       .catch((error) => {
-        navigate("/error");
+        navigate(APP_ROUTES.ERROR);
       });
   };
   return (
@@ -31,7 +49,7 @@ const Header = () => {
             <img
               className="m-4 w-8 h-8"
               alt="user-icon"
-              src="https://occ-0-8407-2186.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTZ2zlLdBVC05fsd2YQAR43J6vB1NAUBOOrxt7oaFATxMhtdzlNZ846H3D8TZzooe2-FT853YVYs8p001KVFYopWi4D4NXM.png?r=229"
+              src={DEFAULT_USER_AVATAR}
             />
             <button
               className="font-bold text-white"
