@@ -7,10 +7,10 @@ export const checkValidData = (email, password, name) => {
   const isEmailValid = EMAIL_VALIDATION_REGEX.test(email);
   const isPasswordValid = PASSWORD_VALIDATION_REGEX.test(password);
 
-  if (!name?.trim()) {
+  if (name && !name?.trim()) {
     return "Name is required";
   }
-  if (!email?.trim()) {
+  if (!email) {
     return "Email is required";
   }
   if (!isEmailValid) {
