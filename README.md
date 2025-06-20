@@ -35,6 +35,10 @@
 - Image CDN URL for movie poster
 - Tailwind CSS on Browse component
 - usePopularMovie custom hook
+- GPT search page
+- GPT search bar
+- Created Multi-language feature
+- Integrate Open AI API
 
 # Features
 

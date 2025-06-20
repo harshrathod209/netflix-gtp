@@ -20,3 +20,9 @@ export const API_OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxODExNjc5ZGE4YWM5NDgyMGU1YjBhNTkzMDM5ODBiMyIsIm5iZiI6MTc1MDQxOTI4Ny4xMDcsInN1YiI6IjY4NTU0NzU3ZmJhNTk5ZDcxMTU1MDk3YSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0uVyPgkeOGkMW83LNOhUUpQBPAHy6WW-azSdV6eW6Ks",
   },
 };
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "spanish", name: "Spanish" },
+];
