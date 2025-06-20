@@ -29,6 +29,12 @@
 - Create movieSlice
 - Embedded the youtube video and make it autoplay and mute
 - Tailwind wind classes to make Main container look awesome
+- Build secondary component
+- integrated popular api
+- MovieList and Movie card
+- Image CDN URL for movie poster
+- Tailwind CSS on Browse component
+- usePopularMovie custom hook
 
 # Features
 
