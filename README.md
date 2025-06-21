@@ -39,6 +39,9 @@
 - GPT search bar
 - Created Multi-language feature
 - Integrate Open AI API
+- .env file configuration
+- Integrated open AI key and make chat request
+- Built gpt movie suggestion UI.
 
 # Features
 
