@@ -1,17 +1,17 @@
-import React, { useRef, useState } from "react";
-import Header from "./Header";
+import { useRef, useState } from "react";
+import Header from "../layout/Header";
 import {
   NETFLIX_BACKGROUND_IMG_URL,
   DEFAULT_USER_AVATAR,
-} from "../utils/constants";
-import { checkValidData } from "../utils/validate";
+} from "../../utils/constants/constants";
+import { checkValidData } from "../../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../utils/firebase";
-import { addUser } from "../utils/userSlice";
+import { auth } from "../../utils/config/firebase";
+import { addUser } from "../../utils/store/slices/userSlice";
 import { useDispatch } from "react-redux";
 
 const Login = () => {

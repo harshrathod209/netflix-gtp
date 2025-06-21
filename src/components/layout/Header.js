@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import NetflixLogo from "../utils/assets/svg/netflix-logo.svg";
+import { useEffect } from "react";
+import NetflixLogo from "../../utils/assets/svg/netflix-logo.svg";
 import { signOut, onAuthStateChanged } from "firebase/auth";
-import { auth } from "../utils/firebase";
+import { auth } from "../../utils/config/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser } from "../utils/userSlice";
+import { addUser, removeUser } from "../../utils/store/slices/userSlice";
 import {
   APP_ROUTES,
   DEFAULT_USER_AVATAR,
   SUPPORTED_LANGUAGES,
-} from "../utils/constants";
-import { toggleGptSearchView } from "../utils/gptSlice";
-import { changeLanguage } from "../utils/configSlice";
+} from "../../utils/constants/constants";
+import { toggleGptSearchView } from "../../utils/store/slices/gptSlice";
+import { changeLanguage } from "../../utils/store/slices/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();

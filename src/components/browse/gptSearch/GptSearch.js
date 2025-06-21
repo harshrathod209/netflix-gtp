@@ -1,6 +1,6 @@
-import GptSearchBar from "./GptSearchBar";
-import GptMovieSuggestions from "./GptMovieSuggestions";
-import { NETFLIX_BACKGROUND_IMG_URL } from "../utils/constants";
+import GptSearchBar from "../gptSearch/GptSearchBar";
+import GptMovieSuggestions from "../gptSearch/GptMovieSuggestions";
+import { NETFLIX_BACKGROUND_IMG_URL } from "../../../utils/constants/constants";
 
 const GptSearch = () => {
   return (
