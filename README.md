@@ -39,9 +39,14 @@
 - GPT search bar
 - Created Multi-language feature
 - Integrate Open AI API
+- fetch gpt movie suggestion from tmdb
+- created GPT slice and populated data
 - .env file configuration
-- Integrated open AI key and make chat request
+- adding .env file to .gitignore
 - Built gpt movie suggestion UI.
+- Integrated open AI key and make chat request
+- Memoization
+- Built responsive UI
 
 # Features
 
